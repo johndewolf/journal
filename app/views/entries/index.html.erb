@@ -1,0 +1,15 @@
+<h1>Entries</h1>
+<%= link_to 'New Journal Entry', new_entry_path %>
+<br>
+<% @entries.each do |entry| %>
+<span class="title"><%= entry.title %></span><br/>
+<%= entry.content %>
+<br>
+Created at:<%= entry.created_at %>
+<br>
+<%= link_to 'Show', entry_path(entry) %> | <%= link_to 'Edit', edit_entry_path(entry) %> | <%= link_to 'Destroy', entry_path(entry), method: :delete %>
+
+<br>
+<% end %>
+
+

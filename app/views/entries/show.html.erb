@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <h1><%= @entry.title %></h1>
+  <p>
+  <%= @entry.content %>
+  </p>
+</p>
+
+<%= link_to 'Edit', edit_entry_path(@entry) %> |
+<%= link_to 'Journal', entries_path %>
