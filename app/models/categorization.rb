@@ -1,10 +1,11 @@
 class Categorization < ActiveRecord::Base
-  validates :entry_id, presence:true, numericality:true
-  validates :category_id, presence:true, numericality:true
+  validates_presence_of :entry
+  validates_presence_of :category
 
   belongs_to :entry,
     inverse_of: :categorizations
 
   belongs_to :category,
     inverse_of: :categorizations
+
 end

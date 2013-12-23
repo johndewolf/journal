@@ -5,11 +5,12 @@ class EntriesController < ApplicationController
 
   def new
     @entry = Entry.new
+    @categories = Category.all
   end
 
   def create
     @entry = Entry.new(entry_params)
-
+    @categories = Category.all
       if @entry.save
         redirect_to @entry, notice: 'Entry was successfully created'
       else
@@ -20,14 +21,17 @@ class EntriesController < ApplicationController
 
   def show
     @entry = Entry.find(params[:id])
+    @selected_categories = @entry.categories
   end
 
   def edit
     @entry = Entry.find(params[:id])
+        @categories = Category.all
   end
 
   def update
     @entry = Entry.find(params[:id])
+    @categories = Category.all
     if @entry.update(entry_params)
       redirect_to @entry, notice: 'Entry was successfully updated.'
     else
@@ -44,6 +48,6 @@ class EntriesController < ApplicationController
 
   private
   def entry_params
-    params.require(:entry).permit(:title, :content)
+    params.require(:entry).permit(:title, :content, :category_ids => [])
   end
 end
