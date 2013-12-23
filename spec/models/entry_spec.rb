@@ -13,4 +13,7 @@ describe Entry do
   it { should_not have_valid(:title).when('', nil) }
   it { should_not have_valid(:content).when('', nil) }
 
+  it { should have_many(:categorizations) }
+  it { should have_many(:categories).through(:categorizations) }
+
 end
