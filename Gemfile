@@ -32,7 +32,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-group :testing, :development do
+group :test, :development do
   gem 'pry-rails'
   gem 'valid_attribute'
   gem 'shoulda'

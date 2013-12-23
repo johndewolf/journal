@@ -9,4 +9,8 @@ describe Entry do
 
   it { should have_valid(:title).when(*titles) }
   it { should have_valid(:content).when(*contents) }
+
+  it { should_not have_valid(:title).when('', nil) }
+  it { should_not have_valid(:content).when('', nil) }
+
 end
