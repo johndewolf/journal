@@ -1,7 +1,6 @@
 class EntriesController < ApplicationController
   def index
     @entries = Entry.all
-    # @selected_categories = @entry.categories
   end
 
   def new
