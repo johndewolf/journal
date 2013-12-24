@@ -1,6 +1,6 @@
 Journal::Application.routes.draw do
   resources :entries
-  resources :categories, only: [:new, :create, :edit, :update, :show]
+  resources :categories
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

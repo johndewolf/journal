@@ -6,4 +6,8 @@ class Category < ActiveRecord::Base
 
   has_many :entries,
     through: :categorizations
+
+  def articles_within_category(category_name)
+    category_name.entries.all
+  end
 end

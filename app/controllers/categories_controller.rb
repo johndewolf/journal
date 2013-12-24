@@ -1,4 +1,8 @@
 class CategoriesController < ApplicationController
+  def index
+    @categories = Category.all
+  end
+
   def new
     @category = Category.new
   end
@@ -27,6 +31,13 @@ class CategoriesController < ApplicationController
       redirect_to @category, notice: 'Category was successfully updated.'
     else
       render action: 'edit'
+    end
+  end
+
+  def destroy
+    @category = Category.find(params[:id])
+    if @category.destroy
+      redirect_to categories_url, notice: 'Category was deleted'
     end
   end
 
