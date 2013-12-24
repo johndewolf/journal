@@ -1,6 +1,7 @@
 class EntriesController < ApplicationController
   def index
     @entries = Entry.all
+    # @selected_categories = @entry.categories
   end
 
   def new
@@ -21,12 +22,12 @@ class EntriesController < ApplicationController
 
   def show
     @entry = Entry.find(params[:id])
-    @selected_categories = @entry.categories
+    @selected_categories =@entry.categories
   end
 
   def edit
     @entry = Entry.find(params[:id])
-        @categories = Category.all
+    @categories = Category.all
   end
 
   def update
