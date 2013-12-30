@@ -1,5 +1,6 @@
 class Category < ActiveRecord::Base
   validates_presence_of :name
+  validates_uniqueness_of :name
 
   has_many :categorizations,
     inverse_of: :category
@@ -7,7 +8,11 @@ class Category < ActiveRecord::Base
   has_many :entries,
     through: :categorizations
 
-  def articles_within_category(category_name)
-    category_name.entries.all
+  def self.name_exists?(category)
+    if find_by(name: category.name)
+      return true
+    else
+      false
+    end
   end
 end

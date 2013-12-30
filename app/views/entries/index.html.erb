@@ -1,8 +1,5 @@
 <h1>Entries</h1>
-<%= link_to 'New Journal Entry', new_entry_path %> |
-<%= link_to 'Category Manager', categories_path %>
 
-<br>
 <% @entries.each do |entry| %>
   <span class="title"><%= entry.title %></span><br/>
   <%= entry.content %>
@@ -20,4 +17,4 @@
   <br>
 <% end %>
 
-
+<%= link_to 'New Entry', new_entry_path, class: "button radius" %>
